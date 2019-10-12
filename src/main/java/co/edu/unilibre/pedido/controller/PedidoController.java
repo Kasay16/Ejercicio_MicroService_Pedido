@@ -1,4 +1,4 @@
-package co.edu.unilibre.invoice.controller;
+package co.edu.unilibre.pedido.controller;
 
 import java.util.List;
 
@@ -9,21 +9,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unilibre.pedido.model.Pedido;
-import co.edu.unilibre.pedido.service.PedidoService;
+import co.edu.unilibre.pedido.service1.PedidoService;
+
 @RestController
 public class PedidoController {
 	
 	@Autowired(required = true)
-	@Qualifier("itemServiceFeign")
-	private IItemService itemService;
+	@Qualifier("pedidoServiceFeign")
+	private PedidoService pedidoService;
 	
 	@GetMapping("/list")
-	public List<Item> getAll(){
-		return itemService.getAll();
+	public List<Pedido> getAll(){
+		return pedidoService.getAll();
 	}
 	
-	@GetMapping("/{id}/{quantity}")
-	public Item getById(@PathVariable Long id, @PathVariable Integer quantity) {
-		return itemService.findById(id, quantity);
+	@GetMapping("/{id}/{cantidad}")
+	public Pedido getById(@PathVariable Long id, @PathVariable Integer cantidad) {
+		return pedidoService.findById(id, cantidad);
 	}
 }
