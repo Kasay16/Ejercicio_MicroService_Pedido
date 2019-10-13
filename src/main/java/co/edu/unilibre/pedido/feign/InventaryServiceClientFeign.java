@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import co.edu.unilibre.pedido.model.Inventario;
 
-@FeignClient (name = "product-service", url = "localhost:10010")
-public interface InventarioServiceClientFeign {
+@FeignClient (name = "inventary-service", url = "localhost:10010")
+public interface InventaryServiceClientFeign {
 	
 	@GetMapping("/list")
 	public List<Inventario> getList();
