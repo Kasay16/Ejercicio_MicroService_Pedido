@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.unilibre.pedido.feign.InventaryServiceClientFeign;
-import co.edu.unilibre.pedido.model.Inventary;
+import co.edu.unilibre.pedido.model.Inventario;
 import co.edu.unilibre.pedido.model.Pedido;
-import co.edu.unilibre.pedido.service.PedidoService;
+import co.edu.unilibre.pedido.service1.PedidoService;
 
 @Service("pedidoServiceFeign")
 public class PedidoServiceFeign implements PedidoService{
@@ -19,7 +19,7 @@ public class PedidoServiceFeign implements PedidoService{
 	
 	@Override
 	public List<Pedido> getAll() {
-		List<Inventary> inventary = inventaryServiceClientFeign.getList();
+		List<Inventario> inventary = inventaryServiceClientFeign.getList();
 		return inventary.stream().map(prod -> new Pedido(prod, 1)).collect(Collectors.toList());
 	}
 
