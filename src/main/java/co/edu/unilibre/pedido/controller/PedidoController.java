@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unilibre.pedido.model.Pedido;
-import co.edu.unilibre.pedido.service1.PedidoService;
+import co.edu.unilibre.pedido.service.PedidoService;
 
 @RestController
 public class PedidoController {
